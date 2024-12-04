@@ -107,10 +107,11 @@ async function fetchPrayerTimes(latitude, longitude, locale) {
   const formattedDate2 = `${day}-${month}-${year}`;
 
   document.getElementById("dateDisplay").textContent = formattedDate;
-
+  //  &tune=2,5,-3,3,1,3,0,-3,0 
+  // Penmabahan Tune waktu agar menyesuikan
   try {
     const response = await fetch(
-      `https://api.aladhan.com/v1/timings/${formattedDate2}?latitude=${latitude}&longitude=${longitude}&method=20`
+      `https://api.aladhan.com/v1/timings/${formattedDate2}?latitude=${latitude}&longitude=${longitude}&method=3&tune=2,5,-3,3,1,3,0,-3,0`
     );
     const data = await response.json();
     const times = data.data.timings;
